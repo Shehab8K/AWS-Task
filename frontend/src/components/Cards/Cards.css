@@ -1,0 +1,31 @@
+.cards {
+    display: flex;
+    /* flex-direction: row;
+    justify-content: space-between; */
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
+.parentContainer{
+    flex: 1;
+    min-width: 22em;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 1200px) {
+    .cards {
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+  .parentContainer{
+    width: 75%;
+}
+}

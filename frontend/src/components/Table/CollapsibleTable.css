@@ -1,0 +1,23 @@
+.mainTable{
+  margin: 0 1em;
+}
+
+@media screen and (max-width: 1200px) {
+  .mainTable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+}
+
+@media screen and (max-width: 760px) {
+  .mainTable {
+    display: flex;
+    margin: 0 0.5em;
+    flex-direction: column;
+    align-items: center;
+    width: 22.5em;
+  }
+  
+}
