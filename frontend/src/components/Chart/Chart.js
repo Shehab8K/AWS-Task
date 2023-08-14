@@ -7,13 +7,15 @@ import CircularProgress from '@mui/material/CircularProgress';
 const Chart = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+    
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
   // Get All Buckets to send count
   useEffect(() => {
     // Get All Buckets with objects and permissions
     async function fetchAllData() {
       try {
-        const response = await axios.get('http://localhost:5000/objects-permission');
+        const response = await axios.get(`${apiBaseUrl}/objects-permission`);
         setData(response.data);
         setLoading(false)
       } catch (error) {
@@ -23,7 +25,7 @@ const Chart = () => {
     }
     // Call the fetch function
     fetchAllData();
-  }, []);
+  }, [apiBaseUrl]);
 
 
   function chart() {

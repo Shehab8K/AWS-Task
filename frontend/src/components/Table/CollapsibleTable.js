@@ -99,11 +99,12 @@ const CollapsibleTable =() => {
       const [loading, setLoading] = useState(true);
 
       // Get All Buckets with their objects / permissions 
+      const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
       useEffect(() => {
         // Define a function to fetch data using Axios
         async function fetchData() {
           try {
-            const response = await axios.get('http://localhost:5000/objects-permission');
+            const response = await axios.get(`${apiBaseUrl}/objects-permission`);
             setData(response.data);
             setLoading(false)
           } catch (error) {
@@ -113,7 +114,7 @@ const CollapsibleTable =() => {
     
         // Call the fetch function
         fetchData();
-      }, []);
+      }, [apiBaseUrl]);
 
       const rows = [];
       data.forEach(bucket => {

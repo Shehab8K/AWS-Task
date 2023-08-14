@@ -99,4 +99,11 @@ def get_objects_permission():
     return jsonify(all_bucket_data)
 
 # Run server at port 5000 from env file
-app.run(host='localhost', port='5000')
+# Check if running on AWS EC2 instance
+if 'AWS_INSTANCE' in os.environ:
+    host = '0.0.0.0'  # Allow access from any IP on EC2
+    port = 5000
+else:
+    host = 'localhost'  # Only allow access from localhost on your machine
+    port = 5000
+app.run(host=host, port=port)
