@@ -75,6 +75,11 @@ def get_all_bucket_data():
 ########## Endpoints ##########
 
 # Endpoint to return all Buckets
+@app.route('/', methods=['GET'])
+def hello():
+    return jsonify("Hello, I'm Shehab")
+
+
 @app.route('/buckets', methods=['GET'])
 def get_buckets():
     buckets_data = list_buckets()
@@ -100,10 +105,6 @@ def get_objects_permission():
 
 # Run server at port 5000 from env file
 # Check if running on AWS EC2 instance
-if 'AWS_INSTANCE' in os.environ:
-    host = '0.0.0.0'  # Allow access from any IP on EC2
-    port = 5000
-else:
-    host = 'localhost'  # Only allow access from localhost on your machine
-    port = 5000
-app.run(host=host, port=port)
+# app.run(host='0.0.0.0', port=5000)
+if __name__ == '__main__':
+    app.run()
