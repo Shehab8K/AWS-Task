@@ -77,7 +77,7 @@ def get_all_bucket_data():
 # Endpoint to return all Buckets
 @app.route('/', methods=['GET'])
 def hello():
-    return jsonify("Hello, I'm Shehab")
+    return "Hello, I'm Shehab"
 
 
 @app.route('/buckets', methods=['GET'])
